@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Entradas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container my-5 text-center">
+        <h1 class="mb-4 mt-4 p-3 bg-primary text-white">Entrada de {{ autor.nombre }}</h1>
+        <div class="row justify-content-center gris">
+            {% for entrada in entradas %}
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ entrada.titulo }}</h2>
+                        <p class="card-text">{{ entrada.contenido|truncatechars:100 }}</p>
+                        <p class="card-text"><small class="text-muted">Fecha de Publicación: {{ entrada.fecha_publicacion }}</small></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="mt-4">
+            <a href="{% url 'index' %}"><button class="btn btn-primary">Volver</button></a>
+        </div>
+    </div>
+</body>
+</html>
+

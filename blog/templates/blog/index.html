@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Entradas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Listas de Autores</h1>
+        <div class="row">
+            {% for autor in autores %}
+            <div class="col-md-6">
+                <div class="card bg-light mb-3 shadow-sm">
+                    <div class="card-body text-center">
+                        <a href="{% url 'lista_entradas' autor.id %}">
+                            <h3 class="card-title">{{ autor.nombre }}</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
